@@ -1,4 +1,4 @@
-from .context import Game
+from .context_game import Game
 import unittest
 
 

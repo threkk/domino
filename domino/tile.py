@@ -1,10 +1,13 @@
-"""
-Models the tiles of a domino game. Each time has two sides with a number
-each. The numbers range between 1 and 6
-"""
 from collections import namedtuple
 
-Tile = namedtuple('Tile', ['x', 'y'])
+
+class Tile(namedtuple('Tile', ['x', 'y'])):
+    """
+    Models the tiles of a domino game. Each time has two sides with a number
+    each. The numbers range between 1 and 6
+    """
+    def __str__(self):
+        return '<%s:%s>' % (self.x, self.y)
 
 
 def make_tile(a, b):
