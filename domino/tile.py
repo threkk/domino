@@ -9,20 +9,18 @@ Tile = namedtuple('Tile', ['x', 'y'])
 
 def make_tile(a, b):
     """Creates a new tile ensuring the restrictions on the parameters"""
-    assert a >= 1 and a <= 6
-    assert b >= 1 and b <= 6
+    assert a >= 0 and a <= 6
+    assert b >= 0 and b <= 6
     return Tile(x=a, y=b)
 
 
-def find_compatible(number, tile):
+def is_compatible(number, tile):
     """
     Checks which side of the tile (if any) is compatible with the given
     number
     """
-    assert number >= 1 and number <= 6
-    if tile.x == number:
-        return 'x'
-    elif tile.y == number:
-        return 'y'
+    assert number >= 0 and number <= 6
+    if tile.x == number or tile.y == number:
+        return True
     else:
-        return None
+        return False
