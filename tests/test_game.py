@@ -28,9 +28,9 @@ class TestGame(unittest.TestCase):
         self.assertEqual(self.game.next_player(), self.players[1])
         self.assertEqual(self.game.next_player(), self.players[2])
 
-    def test_draw(self):
+    def test_pop_top(self):
         original_len = len(self.game.tiles)
-        self.game.draw()
+        self.game.pop_top()
         new_len = len(self.game.tiles)
 
         self.assertEqual(original_len, new_len + 1)

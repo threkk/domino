@@ -15,5 +15,9 @@ def player_cant_play(player, tile):
     print('%s can\'t play, drawing tile %s' % (str(player), str(tile)))
 
 
+def player_skips_turn(player):
+    print('%s can\'t draw or play a tile, skips turn!' % str(player))
+
+
 def win_message(player):
-    print('Player %s has won!' % str(player))
+    print('%s has won!' % str(player))

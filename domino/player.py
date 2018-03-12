@@ -1,4 +1,4 @@
-from .tile import is_compatible
+from domino.tile import is_compatible
 
 
 class Player(object):
@@ -12,9 +12,9 @@ class Player(object):
     def draw(self, tile):
         self.hand.append(tile)
 
-    def play(self, current_move):
+    def play(self, top, tail):
         for tile in self.hand:
-            if is_compatible(current_move, tile):
+            if is_compatible(top, tile) or is_compatible(tail, tile):
                 self.hand.remove(tile)
                 return tile
         return False

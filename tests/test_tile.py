@@ -24,3 +24,7 @@ class TestTile(unittest.TestCase):
         self.assertFalse(is_compatible(4, Tile(x=1, y=2)))
         self.assertTrue(is_compatible(4, Tile(x=4, y=2)))
         self.assertTrue(is_compatible(4, Tile(x=2, y=4)))
+
+
+if __name__ == '__main__':
+    unittest.main()

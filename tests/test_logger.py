@@ -5,6 +5,7 @@ from .context_tile import Tile
 from .context_player import Player
 from .context_logger import start_game
 from .context_logger import player_plays_connect
+from .context_logger import player_skips_turn
 from .context_logger import board_state
 from .context_logger import player_cant_play
 from .context_logger import win_message
@@ -43,8 +44,19 @@ class TestLogger(unittest.TestCase):
         self.assertEqual(mock_stdout.getvalue(), output)
 
     @unittest.mock.patch('sys.stdout', new_callable=StringIO)
+    def test_player_skip_turn(self, mock_stodout):
+        player = Player('Alice')
+        output = 'Alice can\'t draw or play a tile, skips turn!\n'
+        player_skips_turn(player)
+        self.assertEqual(mock_stodout.getvalue(), output)
+
+    @unittest.mock.patch('sys.stdout', new_callable=StringIO)
     def test_win_message(self, mock_stdout):
         player = Player('Alice')
-        output = 'Player Alice has won!\n'
+        output = 'Alice has won!\n'
         win_message(player)
         self.assertEqual(mock_stdout.getvalue(), output)
+
+
+if __name__ == '__main__':
+    unittest.main()
